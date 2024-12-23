@@ -30,6 +30,7 @@ Packer:
 ```lua
 use "KaitoMuraoka/websearcher.nvim"
 ```
+
 ###Setup
 
 Below are the default options for the setup function.
@@ -67,6 +68,8 @@ use_w3m = true
 This is a simple example to search one text selected on visual mode:
 
 `vim.api.nvim_set_keymap("v", "<leader>ss", ":lua require('websearcher').search_selected()<CR>", { noremap = true, silent = true })`
+
+[![SP895.gif](https://s13.gifyu.com/images/SP895.gif)](https://gifyu.com/image/SP895)
 
 ### Search Engine
 
