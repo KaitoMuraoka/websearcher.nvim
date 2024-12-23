@@ -30,6 +30,7 @@ Packer:
 ```lua
 use "KaitoMuraoka/websearcher.nvim"
 ```
+###Setup
 
 Below are the default options for the setup function.
 
