@@ -11,7 +11,6 @@ This section explains how to install Websearcher.
 ## Requirements
 
 - macOS or Linux (or Windows)
-- [Telescope](https://github.com/nvim-telescope/telescope.nvim)
 
 Windows has not been tested.
 
@@ -25,13 +24,7 @@ return {
 }
 ```
 
-Packer:
-
-```lua
-use "KaitoMuraoka/websearcher.nvim"
-```
-
-###Setup
+## Setup
 
 Below are the default options for the setup function.
 
@@ -41,48 +34,44 @@ config = {
 -- As an empty string, it defaults to your OS defaults("open" for macOS, "xdg-open" for Linux)
 open_cmd = "",
 
--- Specify search engine. Default is Google.
+-- Specify search url. Default is Google.
 -- See the search_engine section for currently registered search engines
-search_engine = "Google",
+search_url = "https://google.com/search?q=",
 
---- Specify if want use w3m
---- Default is set to false.
-use_w3m = true
+-- Add custom search_engines
+search_engines = {
+    Google = "https://google.com/search?q=",
+    DuckDuckGo = "https://duckduckgo.com/?q=",
+    Bing = "https://www.bing.com/search?q=",
+    Wikipedia = "https://<lang>.wikipedia.org/wiki/",
+}
+
+-- Use w3m
+-- Default is false
+use_w3m = false,
 },
 ```
 
-### Commands
+## Keymaps
 
-`Websearch:` Makes a search using the config.
+```lua
+vim.api.nvim_set_keymap("v", "<leader>ss", ":lua require('websearcher').search_selected()<CR>", { noremap = true, silent = true }) -- Search selected text with default engine.
+vim.api.nvim_set_keymap("v", "<leader>se", ":lua require('websearcher').search_selected_with_engine()<CR>", { noremap = true, silent = true }) -- Search selected text choosing engine.
+```
 
-`WebsearchOnEngine:` Use Telescope for choose the search engine to use. (Only on that search)
+## Commands
 
-`WebsearchHistory:` See the history of searchs. (Only keeps 50 last search)
+```lua
+WebsearchOnEngine -- Open a window with engines to search
+```
 
-`WebsearchHistoryDelete:` Reset all history.
+To search on Wikipedia, use the following format:
 
-`WebsearchUseW3m:` Enable/disable the w3m usage.
+```
+search | en
+```
 
-### Keymaps
-
-This is a simple example to search one text selected on visual mode:
-
-`vim.api.nvim_set_keymap("v", "<leader>ss", ":lua require('websearcher').search_selected()<CR>", { noremap = true, silent = true })`
-
-[![SP895.gif](https://s13.gifyu.com/images/SP895.gif)](https://gifyu.com/image/SP895)
-
-### Search Engine
-
-- Google
-- DuckDuckGo
-- Bing
-- Yahoo
-- Baidu
-- Yandex
-- Ask
-- Ecosia
-- Phind
-- Wikipedia
+Where "en" is the language code for the specific Wikipedia language version.
 
 ## License
 
