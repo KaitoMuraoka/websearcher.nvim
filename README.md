@@ -34,17 +34,44 @@ config = {
 -- As an empty string, it defaults to your OS defaults("open" for macOS, "xdg-open" for Linux)
 open_cmd = "",
 
--- Specify search engine. Default is Google.
+-- Specify search url. Default is Google.
 -- See the search_engine section for currently registered search engines
-search_engine = "Google",
+search_url = "https://google.com/search?q=",
+
+-- Add custom search_engines
+search_engines = {
+    Google = "https://google.com/search?q=",
+    DuckDuckGo = "https://duckduckgo.com/?q=",
+    Bing = "https://www.bing.com/search?q=",
+    Wikipedia = "https://<lang>.wikipedia.org/wiki/",
+}
+
+-- Use w3m
+-- Default is false
+use_w3m = false,
 },
 ```
 
-### search_engine
+## Keymaps
 
-- Google
-- DuckDuckGo
-- Bing
+```lua
+vim.api.nvim_set_keymap("v", "<leader>ss", ":lua require('websearcher').search_selected()<CR>", { noremap = true, silent = true }) -- Search selected text with default engine.
+vim.api.nvim_set_keymap("v", "<leader>se", ":lua require('websearcher').search_selected_with_engine()<CR>", { noremap = true, silent = true }) -- Search selected text choosing engine.
+```
+
+## Commands
+
+```lua
+WebsearchOnEngine -- Open a window with engines to search
+```
+
+To search on Wikipedia, use the following format:
+
+```
+search | en
+```
+
+Where "en" is the language code for the specific Wikipedia language version.
 
 ## License
 
