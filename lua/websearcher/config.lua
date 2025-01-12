@@ -16,6 +16,8 @@ local default_search_engines = {
     Ecosia = "https://www.ecosia.org/search?q=",
     Phind = "https://www.phind.com/search?q=",
     Wikipedia = "https://<lang>.wikipedia.org/w/index.php?search=",
+    Perplexity = "https://www.perplexity.ai/search?q=",
+    Brave = "https://search.brave.com/search?q=",
 }
 
 local M = {}
