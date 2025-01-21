@@ -65,6 +65,8 @@ search_engines = {}
 - Ecosia
 - Phind
 - Wikipedia
+- Perplexity
+- Brave
 
 ### Commands
 
