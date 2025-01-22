@@ -2,10 +2,6 @@ local config = require('websearcher.config')
 local search = require('websearcher.search')
 local ui = require('websearcher.ui')
 local browser = require('websearcher.browser')
-local pickers = require('telescope.pickers')
-local finders = require('telescope.finders')
-local actions = require('telescope.actions')
-local action_state = require('telescope.actions.state')
 
 local M = {}
 
@@ -73,6 +69,12 @@ end
 
 function M.select_search_engine(callback)
     local search_engines = vim.tbl_extend("force", config.get_default_search_engines(), config.get_config().search_engines)
+
+    local pickers = require('telescope.pickers')
+    local finders = require('telescope.finders')
+    local actions = require('telescope.actions')
+    local action_state = require('telescope.actions.state')
+
     pickers.new({}, {
         prompt_title = "Select Search Engine",
         finder = finders.new_table {
@@ -92,6 +94,11 @@ end
 function M.select_search_engines(callback)
     local search_engines = vim.tbl_extend("force", config.get_default_search_engines(), config.get_config().search_engines)
     local selected_engines = {}
+
+    local pickers = require('telescope.pickers')
+    local finders = require('telescope.finders')
+    local actions = require('telescope.actions')
+    local action_state = require('telescope.actions.state')
 
     pickers.new({}, {
         prompt_title = "Select Search Engines",
