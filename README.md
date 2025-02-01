@@ -45,11 +45,11 @@ open_cmd = "",
 search_engine = "Google",
 
 -- Use W3M in a floating window. Default is False
-use_w3m = false
+use_w3m = false,
 
 -- Add custom search_engines.
 -- See the search_engine section for currently registered search engines
-search_engines = {}
+search_engines = {},
 },
 ```
 
