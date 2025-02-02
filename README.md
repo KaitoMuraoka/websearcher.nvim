@@ -1,3 +1,4 @@
+[![Unit Test](https://github.com/KaitoMuraoka/websearcher.nvim/actions/workflows/unit-test.yml/badge.svg)](https://github.com/KaitoMuraoka/websearcher.nvim/actions/workflows/unit-test.yml)
 # Websearcher.nvim
 
 Websearcher is an extension to Neovim that enables web searches from Neovim.
